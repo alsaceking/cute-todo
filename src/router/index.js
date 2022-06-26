@@ -1,11 +1,22 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
+import ModifyAvatar from '@/components/todo-list/modify-avatar/ModifyAvatar.vue'
 
 const routes = [
   {
     path: '/',
+    redirect: '/home'
+  },
+  {
+    path: '/home',
     name: 'home',
-    component: HomeView
+    component: HomeView,
+    children: [
+      {
+        path: '/home/modify-avatar',
+        component: ModifyAvatar
+      }
+    ]
   }
   // {
   //   path: '/about',
